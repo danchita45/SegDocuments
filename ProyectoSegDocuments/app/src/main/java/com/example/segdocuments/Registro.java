@@ -2,7 +2,7 @@ package com.example.segdocuments;
 
 import java.util.Date;
 
-public class Regitro {
+public class Registro {
     private String Description;
     private int IdRegistro;
     private Date Fecha;

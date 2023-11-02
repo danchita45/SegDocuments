@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 private ActivityMainBinding binding;
-    Button GuardarGeneral;
-    EditText Nombre,Contraseña;
 
 
     private DatabaseReference myRef;
@@ -71,25 +69,6 @@ private ActivityMainBinding binding;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        GuardarGeneral = findViewById(R.id.Guardargeneral);
-        GuardarGeneral.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Nombre = findViewById(R.id.nombre_general);
-                Contraseña = findViewById(R.id.contraseña_general);
-                Persona p = new Persona();
-                p.setNombre(Nombre.getText().toString());
-                p.setContraseña(Contraseña.getText().toString());
-                myRef.push().setValue(p);
-                Nombre.setText("");
-                Contraseña.setText("");
-            }
-        });
-
-
-
-
     }
 
     @Override

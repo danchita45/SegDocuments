@@ -20,32 +20,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/mobile_navigation"
     />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre"
-            android:id="@+id/nombre_general"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:id="@+id/contraseña_general"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guardar"
-            android:id="@+id/Guardargeneral"
-            ></Button>
-    </LinearLayout>
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
