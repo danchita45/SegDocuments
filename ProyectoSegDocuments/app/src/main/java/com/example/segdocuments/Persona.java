@@ -2,6 +2,7 @@ package com.example.segdocuments;
 
 public class Persona {
     private int edad;
+    private int IdPersona;
     private String nombre;
     private String puesto;
     private String horaEntrada;
@@ -16,6 +17,7 @@ public class Persona {
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
         this.contraseña = contraseña;
+        this.IdPersona = IdPersona;
     }
 
     // Getters y Setters
@@ -25,6 +27,13 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+    public int getIdPersona() {
+        return IdPersona;
+    }
+
+    public void setIdPersona(int edad) {
+        this.IdPersona = IdPersona;
     }
 
     public String getNombre() {
