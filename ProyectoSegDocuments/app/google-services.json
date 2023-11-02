@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "130887156816",
+    "project_id": "segdocuments-b2096",
+    "storage_bucket": "segdocuments-b2096.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130887156816:android:16f5c8361f35db19ba7d55",
+        "android_client_info": {
+          "package_name": "com.example.segdocuments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw7fOwnWtH_wxTfGolxLLOy931ver28UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
