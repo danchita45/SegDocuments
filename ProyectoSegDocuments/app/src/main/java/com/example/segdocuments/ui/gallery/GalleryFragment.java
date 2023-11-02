@@ -126,9 +126,6 @@ Button Guardar;
                 Toast.makeText(getContext(), "Se ha Registrado en la bitacora", Toast.LENGTH_LONG).show();
                 DescripRegistro.setText("");
             }
-
-
-
         });
 
 
