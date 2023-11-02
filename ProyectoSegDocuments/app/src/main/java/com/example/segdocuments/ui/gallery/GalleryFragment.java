@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -113,18 +115,20 @@ Button Guardar;
         Guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Crea un nuevo registro
                 Registro nuevoRegistro = new Registro();
                 nuevoRegistro.setDescription(String.valueOf(DescripRegistro.getText()));
                 nuevoRegistro.setIdRegistro(IdRegistro);
                 Date fechaActual = Calendar.getInstance().getTime();
                 nuevoRegistro.setFecha(fechaActual);
-                nuevoRegistro.setIdPersona(01);
-
                 String nuevoRegistroKey = databaseReference.child("Registros").push().getKey();
                 databaseReference.child("Registros").child(nuevoRegistroKey).setValue(nuevoRegistro);
-
-
+                Toast.makeText(getContext(), "Se ha Registrado en la bitacora", Toast.LENGTH_LONG).show();
+                DescripRegistro.setText("");
             }
+
+
+
         });
 
 

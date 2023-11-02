@@ -7,6 +7,7 @@ public class Registro {
     private int IdRegistro;
     private Date Fecha;
     private int IdPersona;
+    private String Persona;
 
     // Getter y Setter para Description
     public String getDescription() {
@@ -21,6 +22,18 @@ public class Registro {
     public int getIdRegistro() {
         return IdRegistro;
     }
+
+
+    public String getPersona() {
+        return Persona;
+    }
+
+    public void setPersona(String description) {
+        this.Persona = Persona;
+    }
+
+    // Getter y Setter para IdRegistro
+
 
     public void setIdRegistro(int idRegistro) {
         this.IdRegistro = idRegistro;
