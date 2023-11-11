@@ -1,4 +1,4 @@
-package com.example.segdocuments.ui.slideshow;
+package com.example.segdocuments.ui.nuevo_registro;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.segdocuments.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+public class Nuevo_Registro_Fragment extends Fragment {
 
 private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+            Nuevo_Registro_ViewModel nuevoRegistroViewModel =
+                    new ViewModelProvider(this).get(Nuevo_Registro_ViewModel.class);
 
     binding = FragmentSlideshowBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
-
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //Muestra el tescto de la claseViewModel
+        //final TextView textView = binding.textSlideshow;
+        //nuevoRegistroViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

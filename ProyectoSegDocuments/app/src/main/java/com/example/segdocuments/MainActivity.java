@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -19,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.segdocuments.databinding.ActivityMainBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.security.Guard;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,7 +58,7 @@ private ActivityMainBinding binding;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_registrar_E_S, R.id.nav_bitacora, R.id.nav_registro)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

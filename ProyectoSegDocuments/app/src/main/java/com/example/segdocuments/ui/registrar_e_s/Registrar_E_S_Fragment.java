@@ -1,29 +1,30 @@
-package com.example.segdocuments.ui.home;
+package com.example.segdocuments.ui.registrar_e_s;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.segdocuments.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class Registrar_E_S_Fragment extends Fragment {
 
 private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        Registrar_E_S_ViewModel registrarESViewModel =
+                new ViewModelProvider(this).get(Registrar_E_S_ViewModel.class);
 
     binding = FragmentHomeBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+            //Muestra el tescto de la claseViewModel
+       // final TextView textView = binding.textHome;
+       // registrarESViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

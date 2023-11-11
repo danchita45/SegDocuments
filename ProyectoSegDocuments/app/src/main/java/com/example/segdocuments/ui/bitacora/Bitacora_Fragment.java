@@ -1,6 +1,5 @@
-package com.example.segdocuments.ui.gallery;
+package com.example.segdocuments.ui.bitacora;
 
-import android.app.Person;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.segdocuments.Persona;
 import com.example.segdocuments.R;
 import com.example.segdocuments.Registro;
+
 import com.example.segdocuments.databinding.FragmentGalleryBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,11 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class GalleryFragment extends Fragment {
+public class Bitacora_Fragment extends Fragment {
 
 private FragmentGalleryBinding binding;
 
@@ -44,8 +41,8 @@ Button Guardar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        Bitacora_ViewModel bitacoraViewModel =
+                new ViewModelProvider(this).get(Bitacora_ViewModel.class);
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -54,11 +51,7 @@ Button Guardar;
         DescripRegistro = root.findViewById(R.id.editTextTextMultiLine); // Asegúrate de que el ID sea el correcto
         Guardar = root.findViewById(R.id.btnGuardar); // Asegúrate de que el ID sea el correcto
 
-
         databaseReference = FirebaseDatabase.getInstance().getReference().child("SegDocuments");
-
-
-
 
         spinnerAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,32 +60,27 @@ Button Guardar;
 
 
         registrosReference.orderByChild("IdRegistro").limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                                                        @Override
-                                                                                                        public void onDataChange(DataSnapshot dataSnapshot) {
-                                                                                                            long ultimoId = 0;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                long ultimoId = 0;
+                for (DataSnapshot registroSnapshot : dataSnapshot.getChildren()) {
+                    Registro registro = registroSnapshot.getValue(Registro.class);
+                    if (registro != null) {
+                        ultimoId = registro.getIdRegistro();
+                    }
+                }
 
-                                                                                                            for (DataSnapshot registroSnapshot : dataSnapshot.getChildren()) {
-                                                                                                                Registro registro = registroSnapshot.getValue(Registro.class);
-                                                                                                                if (registro != null) {
-                                                                                                                    ultimoId = registro.getIdRegistro();
-                                                                                                                }
-                                                                                                            }
+                // Incrementa el ID para el nuevo registro
+                long nuevoId = ultimoId + 1;
+                // Asigna el nuevo ID a tu objeto Registro
+                IdRegistro = (int) nuevoId;
+            }
 
-                                                                                                            // Incrementa el ID para el nuevo registro
-                                                                                                            long nuevoId = ultimoId + 1;
-
-                                                                                                            // Asigna el nuevo ID a tu objeto Registro
-                                                                                                            IdRegistro = (int) nuevoId;
-
-
-                                                                                                        }
-
-                                                                                                        @Override
-                                                                                                        public void onCancelled(DatabaseError databaseError) {
-                                                                                                            // Maneja errores en caso de que la consulta falle
-                                                                                                        }
-                                                                                                    });
-
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Maneja errores en caso de que la consulta falle
+            }
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,14 +90,12 @@ Button Guardar;
                     if(nombre!=null){
                         spinnerAdapter.add(nombre);
                     }
-
                 }
                 spinnerAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
         Guardar.setOnClickListener(new View.OnClickListener() {
@@ -127,9 +113,6 @@ Button Guardar;
                 DescripRegistro.setText("");
             }
         });
-
-
-
         return root;
     }
 

@@ -3,23 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_registrar_E_S">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.segdocuments.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.segdocuments.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:id="@+id/nav_bitacora"
+        android:name="com.example.segdocuments.ui.bitacora.Bitacora_Fragment"
+        android:label="@string/menu_bitacora"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.segdocuments.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:id="@+id/nav_registrar_entrada"
+        android:name="com.example.segdocuments.ui.entrada.Reg_EntradaFragment"
+        android:label="@string/menu_reg_entrada"
+        tools:layout="@layout/fragment_reg_entrada" />
+
+    <fragment
+        android:id="@+id/nav_registro"
+        android:name="com.example.segdocuments.ui.nuevo_registro.Nuevo_Registro_Fragment"
+        android:label="@string/menu_registro"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_registrar_E_S"
+        android:name="com.example.segdocuments.ui.registrar_e_s.Registrar_E_S_Fragment"
+        android:label="@string/menu_registrar_e_s"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_registrar_salida"
+        android:name="com.example.segdocuments.ui.salida.Reg_salidaFragment"
+        android:label="@string/menu_reg_salida"
+        tools:layout="@layout/fragment_reg_salida" />
+
+    <fragment
+        android:id="@+id/nav_ver_registro"
+        android:name="com.example.segdocuments.ui.ver_registros.Ver_registrosFragment"
+        android:label="@string/menu_ver_regitros"
+        tools:layout="@layout/fragment_ver_registros" />
 </navigation>
