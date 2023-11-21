@@ -47,15 +47,13 @@ Button Guardar;
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        usuarios = root.findViewById(R.id.spinner); // Asegúrate de que el ID sea el correcto
+
         DescripRegistro = root.findViewById(R.id.editTextTextMultiLine); // Asegúrate de que el ID sea el correcto
         Guardar = root.findViewById(R.id.btnGuardar); // Asegúrate de que el ID sea el correcto
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("SegDocuments");
 
-        spinnerAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        usuarios.setAdapter(spinnerAdapter);
+
         DatabaseReference registrosReference = databaseReference.child("Registros");
 
 
@@ -82,22 +80,7 @@ Button Guardar;
             }
         });
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String nombre = dataSnapshot.child("nombre").getValue(String.class);
-                    if(nombre!=null){
-                        spinnerAdapter.add(nombre);
-                    }
-                }
-                spinnerAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
         Guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

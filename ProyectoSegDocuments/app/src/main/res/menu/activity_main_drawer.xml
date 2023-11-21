@@ -14,10 +14,6 @@
             android:icon="@android:drawable/ic_menu_recent_history"
             android:title="@string/menu_reg_salida" />
         <item
-            android:id="@+id/nav_registrar_E_S"
-            android:icon="@android:drawable/ic_input_get"
-            android:title="@string/menu_registrar_e_s" />
-        <item
             android:id="@+id/nav_registro"
             android:icon="@android:drawable/ic_input_add"
             android:title="@string/menu_registro" />
