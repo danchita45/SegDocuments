@@ -11,14 +11,9 @@ public class Persona {
 
     // Constructor
     public Persona() {
-        this.edad = edad;
-        this.nombre = nombre;
-        this.puesto = puesto;
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
-        this.contraseña = contraseña;
-        this.IdPersona = IdPersona;
+
     }
+
 
     // Getters y Setters
     public int getEdad() {

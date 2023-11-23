@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.segdocuments.R;
 import com.example.segdocuments.TableAdapter;
 import com.example.segdocuments.TableItem;
+import com.example.segdocuments.databinding.FragmentSlideshowBinding;
 import com.example.segdocuments.ui.Entrada;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +33,7 @@ public class Reg_salidaFragment extends Fragment {
     public static Reg_salidaFragment newInstance() {
         return new Reg_salidaFragment();
     }
+    private FragmentSlideshowBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -45,7 +47,7 @@ public class Reg_salidaFragment extends Fragment {
         List<TableItem> tableItems = new ArrayList<>();
 
         // Inicializar el adaptador con la lista de elementos
-        tableAdapter = new TableAdapter(tableItems);
+        tableAdapter = new TableAdapter(tableItems,getContext());
         recyclerView.setAdapter(tableAdapter);
 
 

@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.segdocuments.databinding.ActivityMainBinding;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,12 +26,6 @@ private ActivityMainBinding binding;
 
     private DatabaseReference myRef;
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +33,7 @@ private ActivityMainBinding binding;
 
 
         myRef = FirebaseDatabase.getInstance().getReference("SegDocuments");
-
-
-
-
+        FirebaseApp.initializeApp(this);
      binding = ActivityMainBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
 
@@ -58,7 +50,7 @@ private ActivityMainBinding binding;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_registrar_E_S, R.id.nav_bitacora, R.id.nav_registro)
+                R.id.nav_registrar_E_S, R.id.nav_bitacora, R.id.nav_registro,R.id.fragmentReferenciaMapa)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

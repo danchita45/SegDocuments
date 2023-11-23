@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/nav_registro"
         android:name="com.example.segdocuments.ui.nuevo_registro.Nuevo_Registro_Fragment"
-        android:label="@string/menu_registro"
+        android:label="@string/VerSalidas"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
@@ -40,4 +40,9 @@
         android:name="com.example.segdocuments.ui.ver_registros.Ver_registrosFragment"
         android:label="@string/menu_ver_regitros"
         tools:layout="@layout/fragment_ver_registros" />
+    <fragment
+        android:id="@+id/fragmentReferenciaMapa"
+        android:name="com.example.segdocuments.ReferenciaMapa"
+        android:label="@string/VerMapa"
+        tools:layout="@layout/fragment_referencia_mapa" />
 </navigation>

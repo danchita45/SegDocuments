@@ -52,7 +52,7 @@ public class Ver_registrosFragment extends Fragment {
         List<TableItem> tableItems = new ArrayList<>();
 
         // Inicializar el adaptador con la lista de elementos
-        tableAdapter = new TableAdapter(tableItems);
+        tableAdapter = new TableAdapter(tableItems,getContext());
         recyclerView.setAdapter(tableAdapter);
 
 
