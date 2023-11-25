@@ -139,7 +139,6 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
     }
 
     private void marcarComoSalida(Entrada entrada) {
-        // Obtén la referencia a la ubicación "entradas" en tu base de datos
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("SegDocuments").child("Salidas");
         String nuevaEntradaId = databaseReference.push().getKey();
         databaseReference.child(nuevaEntradaId).setValue(entrada)
@@ -153,7 +152,6 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Manejo de errores
                         mostrarToast("Error al marcar entrada como salida");
                     }
                 });
@@ -166,7 +164,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
     private void eliminarUsuarioPorNombre(Entrada entrada) {
         DatabaseReference personasRef = FirebaseDatabase.getInstance().getReference().child("SegDocuments").child("Entrada");
 
-        // Realiza una consulta para encontrar el usuario con el nombre específico
+
         Query query = personasRef.orderByChild("placa").equalTo(entrada.getPlaca());
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
